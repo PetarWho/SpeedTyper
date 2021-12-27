@@ -45,8 +45,4 @@ public class WordManager : MonoBehaviour {
 			words.Remove(activeWord);
 		}
 	}
-	public static void EndOfGame()
-	{
-		Debug.Log("Game Over");
-	}
 }

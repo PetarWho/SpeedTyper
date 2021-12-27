@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 [System.Serializable]
 public class Word {
@@ -35,6 +36,7 @@ public class Word {
 		bool wordTyped = (typeIndex >= word.Length);
 		if (wordTyped)
 		{
+			ScoreSystem.score += word.Length;
 			display.RemoveWord();
 		}
 		return wordTyped;
