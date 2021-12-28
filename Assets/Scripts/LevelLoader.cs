@@ -25,4 +25,7 @@ public class LevelLoader : MonoBehaviour
              yield return null;
         }
     }
+    public void ExitGame() {
+        Application.Quit();
+    }
 }
