@@ -19,38 +19,43 @@ public class WordManager : MonoBehaviour {
 
 	public void TypeLetter (char letter)
 	{
-		if (hasActiveWord)
+		if (!PauseMenu.GameIsPaused)
 		{
-			if (activeWord.GetNextLetter() == letter)
+
+			if (hasActiveWord)
 			{
-				activeWord.TypeLetter();
+				if (activeWord.GetNextLetter() == letter)
+				{
+					activeWord.TypeLetter();
+				}
+				else
+				{
+					if (ScoreSystem.score > 0)
+					{
+						ScoreSystem.score -= 1;
+					}
+				}
 			}
 			else
 			{
-				if (ScoreSystem.score > 0)
+				foreach (Word word in words)
 				{
-					ScoreSystem.score-=1;
-				}
-			}
-		} else
-		{
-			foreach(Word word in words)
-			{
-				if (word.GetNextLetter() == letter)
-				{
-					activeWord = word;
-					hasActiveWord = true;
-					word.TypeLetter();
-					break;
-				}
-				
-			}
-		}
+					if (word.GetNextLetter() == letter)
+					{
+						activeWord = word;
+						hasActiveWord = true;
+						word.TypeLetter();
+						break;
+					}
 
-		if (hasActiveWord && activeWord.WordTyped())
-		{
-			hasActiveWord = false;
-			words.Remove(activeWord);
+				}
+			}
+
+			if (hasActiveWord && activeWord.WordTyped())
+			{
+				hasActiveWord = false;
+				words.Remove(activeWord);
+			}
 		}
 	}
 }
