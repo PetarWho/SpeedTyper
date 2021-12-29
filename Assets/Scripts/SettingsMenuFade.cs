@@ -6,19 +6,20 @@ using UnityEngine.UI;
 
 public class SettingsMenuFade : MonoBehaviour
 {
-    public CanvasGroup canvasGroupObject;
+    public CanvasGroup settingsCanvasGroup;
+    public CanvasGroup helpCanvasGroup;
 
-    public void FadeIn()
+    public void FadeIn(CanvasGroup canvasGroup)
     {
-        canvasGroupObject.interactable = true;
-        canvasGroupObject.blocksRaycasts = true;
-        StartCoroutine(FadeCanvasGroup(canvasGroupObject, canvasGroupObject.alpha, 1));
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+        StartCoroutine(FadeCanvasGroup(canvasGroup, canvasGroup.alpha, 1));
     }
-    public void FadeOut()
+    public void FadeOut(CanvasGroup canvasGroup)
     {
-        canvasGroupObject.interactable = false;
-        canvasGroupObject.blocksRaycasts = false;
-        StartCoroutine(FadeCanvasGroup(canvasGroupObject, canvasGroupObject.alpha, 0));
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+        StartCoroutine(FadeCanvasGroup(canvasGroup, canvasGroup.alpha, 0));
     }
     public IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float start, float end, float lerpTime = 0.3f)
     {

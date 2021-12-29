@@ -25,6 +25,13 @@ public class WordManager : MonoBehaviour {
 			{
 				activeWord.TypeLetter();
 			}
+			else
+			{
+				if (ScoreSystem.score > 0)
+				{
+					ScoreSystem.score-=1;
+				}
+			}
 		} else
 		{
 			foreach(Word word in words)
@@ -36,6 +43,7 @@ public class WordManager : MonoBehaviour {
 					word.TypeLetter();
 					break;
 				}
+				
 			}
 		}
 
