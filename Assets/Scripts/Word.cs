@@ -38,6 +38,7 @@ public class Word {
 		{
 			ScoreSystem.score += word.Length;
 			display.RemoveWord();
+			WordTimer.wordFallSpeed *= 1.05f;
 		}
 		return wordTyped;
 	}

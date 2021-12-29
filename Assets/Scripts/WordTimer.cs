@@ -6,6 +6,7 @@ public class WordTimer : MonoBehaviour {
 
 	public WordManager wordManager;
 
+	public static float wordFallSpeed = 1.5f;
 	public float wordDelay = 1.5f;
 	private float nextWordTime = 0f;
 
@@ -15,7 +16,6 @@ public class WordTimer : MonoBehaviour {
 		{
 			wordManager.AddWord();
 			nextWordTime = Time.time + wordDelay;
-			wordDelay *= .99f;
 		}
 	}
 

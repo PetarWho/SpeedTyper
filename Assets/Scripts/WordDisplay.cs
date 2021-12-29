@@ -6,7 +6,6 @@ using UnityEngine;
 public class WordDisplay : MonoBehaviour {
 
 	public TextMeshProUGUI text;
-	public float fallSpeed = 1f;
 
 	public void SetWord (string word)
 	{
@@ -26,7 +25,7 @@ public class WordDisplay : MonoBehaviour {
 
 	private void Update()
 	{
-		transform.Translate(0f, -fallSpeed * Time.deltaTime, 0f);
+		transform.Translate(0f, -WordTimer.wordFallSpeed * Time.deltaTime, 0f);
 	}
 
 }
