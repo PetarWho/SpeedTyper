@@ -17,7 +17,7 @@ public class LoseMenu : MonoBehaviour
             }
             else
                 ScoreSystem.NewHighScore = false;
-
+            
             PauseMenu.GameIsPaused = true;
             Pause();
         }
