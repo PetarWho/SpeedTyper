@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WordManager : MonoBehaviour {
 
@@ -12,7 +13,6 @@ public class WordManager : MonoBehaviour {
 
 	private bool hasActiveWord;
 	private Word activeWord;
-
 	public void AddWord ()
 	{
 		Word word = new Word(WordGenerator.GetRandomWord(), wordSpawner.SpawnWord());
@@ -55,6 +55,8 @@ public class WordManager : MonoBehaviour {
 			if (hasActiveWord && activeWord.WordTyped())
 			{
 				hasActiveWord = false;
+				if (activeWord.isGolden)
+					CoinScript.coins += activeWord.word.Length;
 				words.Remove(activeWord);
 			}
 			

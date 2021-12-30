@@ -7,8 +7,9 @@ public class WordDisplay : MonoBehaviour {
 
 	public TextMeshProUGUI text;
 
-	public void SetWord (string word)
+	public void SetWord (string word, Color coloring)
 	{
+		text.color = coloring;
 		text.SetText(word);
 	}
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+using Random = UnityEngine.Random;
 
 [System.Serializable]
 public class Word
@@ -13,15 +13,20 @@ public class Word
 
 	WordDisplay display;
 
-
+	public bool isGolden;
+	private int rnd;
+	private Color goldColor;
+	private Color normalColor;
 	public Word (string _word, WordDisplay _display)
 	{
+		ColorUtility.TryParseHtmlString("#FDBD25", out goldColor);
+		ColorUtility.TryParseHtmlString("#FFB9B6", out normalColor);
 		word = _word;
 		typeIndex = 0;
-
+		rnd = Random.Range(1, 21);
+		this.isGolden = rnd == 2;
 		display = _display;
-		display.SetWord(word);
-		
+		display.SetWord(word, isGolden ? goldColor : normalColor);
 	}
 
 	public char GetNextLetter ()
