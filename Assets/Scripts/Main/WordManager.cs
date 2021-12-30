@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WordManager : MonoBehaviour {
@@ -21,7 +23,6 @@ public class WordManager : MonoBehaviour {
 	{
 		if (!PauseMenu.GameIsPaused)
 		{
-
 			if (hasActiveWord)
 			{
 				if (activeWord.GetNextLetter() == letter)
@@ -40,14 +41,14 @@ public class WordManager : MonoBehaviour {
 			{
 				foreach (Word word in words)
 				{
-					if (word.GetNextLetter() == letter)
+					Word currentWord = words.First();
+					if (word.GetNextLetter() == letter && currentWord==word)
 					{
 						activeWord = word;
 						hasActiveWord = true;
 						word.TypeLetter();
 						break;
 					}
-
 				}
 			}
 
@@ -56,6 +57,7 @@ public class WordManager : MonoBehaviour {
 				hasActiveWord = false;
 				words.Remove(activeWord);
 			}
+			
 		}
 	}
 }

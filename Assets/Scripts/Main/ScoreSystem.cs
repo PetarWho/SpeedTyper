@@ -27,19 +27,21 @@ public class ScoreSystem : MonoBehaviour
         highScoreDisplay.SetText(("High Score: " + highScore));
     }
 
-    public static void Save()
+     static void Save()
     {
         PlayerPrefs.SetString("highScore", highScore.ToString());
+        PlayerPrefs.SetString("coins", CoinScript.coins.ToString());
     }
 
-    public static void Load()
+     static void Load()
     {
         highScore = int.Parse(PlayerPrefs.GetString("highScore", "0"));
+        CoinScript.coins = int.Parse(PlayerPrefs.GetString("coins", "0"));
     }
 
     private void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(KeyCode.Tab))
         {
             PlayerPrefs.DeleteAll();
             Load();

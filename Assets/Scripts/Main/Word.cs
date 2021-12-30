@@ -1,15 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
 [System.Serializable]
-public class Word {
+public class Word
+{
 
 	public string word;
 	private int typeIndex;
 
 	WordDisplay display;
+
 
 	public Word (string _word, WordDisplay _display)
 	{
@@ -18,6 +21,7 @@ public class Word {
 
 		display = _display;
 		display.SetWord(word);
+		
 	}
 
 	public char GetNextLetter ()
@@ -30,7 +34,6 @@ public class Word {
 		typeIndex++;
 		display.RemoveLetter();
 	}
-
 	public bool WordTyped ()
 	{
 		bool wordTyped = (typeIndex >= word.Length);
@@ -38,7 +41,7 @@ public class Word {
 		{
 			ScoreSystem.score += word.Length;
 			display.RemoveWord();
-			WordTimer.wordFallSpeed *= 1.05f;
+			WordTimer.wordFallSpeed *= 1.001f;
 		}
 		return wordTyped;
 	}
