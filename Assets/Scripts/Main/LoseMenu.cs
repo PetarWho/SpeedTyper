@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class LoseMenu : MonoBehaviour
 {
     public GameObject LoseMenuUI;
+    public CameraShake cameraShake;
     void FixedUpdate()
     {
         if (CollisionDetection.GameOver)
         {
+            StartCoroutine(cameraShake.Shake(2f, -0.1f));
             if (ScoreSystem.score > ScoreSystem.highScore)
             {
                 ScoreSystem.highScore = ScoreSystem.score;
