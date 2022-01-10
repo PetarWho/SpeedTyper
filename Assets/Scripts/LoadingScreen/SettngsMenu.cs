@@ -9,6 +9,9 @@ public class SettngsMenu : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
     public AudioMixer audioMixer;
     Resolution[] resolutions;
+    public Image volumeImage;
+    public Sprite volumeON;
+    public Sprite volumeOFF;
     private void Start()
     {
         resolutions= Screen.resolutions;
@@ -38,6 +41,10 @@ public class SettngsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("Volume", volume);
+        if (volume == -80f)
+            volumeImage.sprite = volumeOFF;
+        else
+            volumeImage.sprite = volumeON;
     }
     public void SetQuality(int qualityIndex)
     {

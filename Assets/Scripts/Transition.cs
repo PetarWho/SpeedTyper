@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,17 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class Transition : MonoBehaviour
 {
+    public CanvasGroup cg;
     public Animator transition;
 
-    public float transitionTime = 1f;     
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            LoadNextLevel();
-        }
+        cg.alpha = 1;
     }
+
+    public float transitionTime = 1f;     
+
     public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));

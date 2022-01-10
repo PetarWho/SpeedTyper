@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7085033551593339611}
-  - component: {fileID: 7085033551593339609}
   - component: {fileID: 7085033551593339608}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,18 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7085033551593339609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7085033551593339610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b63de3677d9a042b87e786eaf6fc38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7085033551593339608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b63de3677d9a042b87e786eaf6fc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cg: {fileID: 0}
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!1 &7085033552403531298
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +60,7 @@ GameObject:
   - component: {fileID: 7085033552403531302}
   - component: {fileID: 7085033552403531297}
   - component: {fileID: 7085033552403531296}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Crossfade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +179,7 @@ GameObject:
   - component: {fileID: 7085033552589238769}
   - component: {fileID: 7085033552589238768}
   - component: {fileID: 7085033552589238771}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

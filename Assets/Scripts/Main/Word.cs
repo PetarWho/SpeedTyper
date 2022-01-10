@@ -17,13 +17,15 @@ public class Word
 	private int rnd;
 	private Color goldColor;
 	private Color normalColor;
+	public static int randomNumberStart;
+	public static int randomNumberEnd;
 	public Word (string _word, WordDisplay _display)
 	{
 		ColorUtility.TryParseHtmlString("#FDBD25", out goldColor);
 		ColorUtility.TryParseHtmlString("#FFB9B6", out normalColor);
 		word = _word;
 		typeIndex = 0;
-		rnd = Random.Range(1, 21);
+		rnd = Random.Range(randomNumberStart, randomNumberEnd);
 		this.isGolden = rnd == 2;
 		display = _display;
 		display.SetWord(word, isGolden ? goldColor : normalColor);
