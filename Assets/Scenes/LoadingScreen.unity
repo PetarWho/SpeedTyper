@@ -3277,7 +3277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4ea58e15f3e2eb64d982add9f1d9b6e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aeb4e7800423ad84380f0c3ca1d5576e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6377,15 +6377,15 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1683309890}
+        m_TargetAssemblyTypeName: SettngsMenu, Assembly-CSharp
+        m_MethodName: Toggle_Changed
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: -80
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -7805,6 +7805,7 @@ MonoBehaviour:
   volumeImage: {fileID: 1374168671}
   volumeON: {fileID: 21300000, guid: 52d04fee4db4c89469af744a5eb5a4e7, type: 3}
   volumeOFF: {fileID: 21300000, guid: 4b746e4be9837544fa632782a75365b2, type: 3}
+  slider: {fileID: 1122098898}
 --- !u!225 &1683309891
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class SettngsMenu : MonoBehaviour
     public Image volumeImage;
     public Sprite volumeON;
     public Sprite volumeOFF;
+    public Slider slider;
     private void Start()
     {
         resolutions= Screen.resolutions;
@@ -53,5 +54,19 @@ public class SettngsMenu : MonoBehaviour
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+    }
+
+    public void Toggle_Changed(bool newValue)
+    {
+        if (newValue)
+        {
+            SetVolume(0f);
+            slider.value = 0f;
+        }
+        else
+        {
+            SetVolume(-80f);
+            slider.value = -80f;
+        }
     }
 }
