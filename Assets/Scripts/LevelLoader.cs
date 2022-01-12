@@ -10,16 +10,16 @@ public class LevelLoader : MonoBehaviour
     public string difficulty;
     public static string staticDifficulty;
 
-    public void LoadLevel(int sceneIndex)
+    public void LoadLevel(string sceneName)
     {
         slider.gameObject.SetActive(true);
         staticDifficulty = difficulty;
-        StartCoroutine(LoadAsynchronously(sceneIndex));
+        StartCoroutine(LoadAsynchronously(sceneName));
     }
 
-    IEnumerator LoadAsynchronously(int sceneIndex)
+    IEnumerator LoadAsynchronously(string sceneName)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 
         loadingScreen.SetActive(true);
         while (!operation.isDone)
