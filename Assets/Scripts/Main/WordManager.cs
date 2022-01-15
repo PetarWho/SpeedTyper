@@ -34,6 +34,7 @@ public class WordManager : MonoBehaviour {
 					if (ScoreSystem.score > 0)
 					{
 						ScoreSystem.score -= 1;
+						
 					}
 				}
 			}

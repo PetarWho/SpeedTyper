@@ -48,7 +48,11 @@ public class Word
 		{
 			ScoreSystem.score += word.Length;
 			display.RemoveWord();
-			WordTimer.wordFallSpeed *= 1.001f;
+			if(LevelLoader.staticDifficulty == "Endless")
+				WordTimer.wordFallSpeed *= 1.0001f;
+			else
+				WordTimer.wordFallSpeed *= 1.001f;
+
 		}
 		return wordTyped;
 	}

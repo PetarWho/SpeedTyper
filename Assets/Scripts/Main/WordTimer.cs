@@ -40,7 +40,7 @@ public class WordTimer : MonoBehaviour {
 				Word.randomNumberEnd = 16;
 				break;
 			case "Endless":
-				wordFallSpeed = 1.4f;
+				wordFallSpeed = 1.5f;
 				wordDelay = 1.45f;
 				Word.randomNumberStart = 1;
 				Word.randomNumberEnd = 26;
