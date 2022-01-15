@@ -8,17 +8,20 @@ public class SettingsMenuFade : MonoBehaviour
 {
     public CanvasGroup settingsCanvasGroup;
     public CanvasGroup helpCanvasGroup;
+    private bool fadedIn = false;
 
     public void FadeIn(CanvasGroup canvasGroup)
     {
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
+        fadedIn = true;
         StartCoroutine(FadeCanvasGroup(canvasGroup, canvasGroup.alpha, 1));
     }
     public void FadeOut(CanvasGroup canvasGroup)
     {
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
+        fadedIn = false;
         StartCoroutine(FadeCanvasGroup(canvasGroup, canvasGroup.alpha, 0));
     }
     public IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float start, float end, float lerpTime = 0.3f)
@@ -35,6 +38,16 @@ public class SettingsMenuFade : MonoBehaviour
             if (percentageComplete >= 1)
                 break;
             yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private void Update()
+    {
+        if (fadedIn && Input.GetKeyDown(KeyCode.Escape))
+        {
+            fadedIn = false;
+            FadeOut(settingsCanvasGroup);
+            FadeOut(helpCanvasGroup);
         }
     }
 }

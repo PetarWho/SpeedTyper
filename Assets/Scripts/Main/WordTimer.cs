@@ -31,7 +31,7 @@ public class WordTimer : MonoBehaviour {
 				wordFallSpeed = 1.65f;
 				wordDelay = 1.4f;
 				Word.randomNumberStart = 1;
-				Word.randomNumberEnd = 21;
+				Word.randomNumberEnd = 23;
 				break;
 			case "Insane":
 				wordFallSpeed = 1.8f;
