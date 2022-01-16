@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 347038055}
   - component: {fileID: 347038057}
   - component: {fileID: 347038056}
+  - component: {fileID: 347038058}
   m_Layer: 3
   m_Name: Coins
   m_TagString: Untagged
@@ -449,6 +450,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347038054}
   m_CullTransparentMesh: 1
+--- !u!95 &347038058
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347038054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95e7c354d03db6f4ca8fcd1d149659bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &368569964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,6 +2305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   words: []
   wordSpawner: {fileID: 1506127309}
+  goldAnim: {fileID: 347038058}
 --- !u!4 &1506127307
 Transform:
   m_ObjectHideFlags: 0

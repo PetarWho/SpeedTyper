@@ -10,6 +10,7 @@ public class WordManager : MonoBehaviour {
 	public List<Word> words;
 
 	public WordSpawner wordSpawner;
+	public Animator goldAnim;
 
 	private bool hasActiveWord;
 	private Word activeWord;
@@ -57,10 +58,19 @@ public class WordManager : MonoBehaviour {
 			{
 				hasActiveWord = false;
 				if (activeWord.isGolden)
+				{
 					CoinScript.coins += activeWord.word.Length;
+					goldAnim.SetBool("Typed",true);
+					StartCoroutine(WaitAndStop());
+				}
 				words.Remove(activeWord);
 			}
 			
 		}
+	}
+	IEnumerator WaitAndStop()
+	{
+		yield return new WaitForSeconds(1);
+		goldAnim.SetBool("Typed",false);
 	}
 }
