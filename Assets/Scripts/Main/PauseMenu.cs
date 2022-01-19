@@ -36,16 +36,20 @@ public class PauseMenu : MonoBehaviour
     }
     public void LoadMenu()
     {
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
+        ScoreSystem.score = 0;
         SceneManager.LoadScene("LoadingScreen");
     }
     public void LoadLevels()
         {
-            Time.timeScale = 1f; 
+            Time.timeScale = 1f;
+            ScoreSystem.score = 0;
             SceneManager.LoadScene("Menu");
         }
     public void QuitGame()
     {
+        Time.timeScale = 1f;
+        ScoreSystem.score = 0;
         Application.Quit();
     }
 

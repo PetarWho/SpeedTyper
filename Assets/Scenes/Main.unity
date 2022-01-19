@@ -1380,8 +1380,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1328970376}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 1328970377}
+        m_TargetAssemblyTypeName: LoseMenu, Assembly-CSharp
         m_MethodName: LoadLevels
         m_Mode: 1
         m_Arguments:

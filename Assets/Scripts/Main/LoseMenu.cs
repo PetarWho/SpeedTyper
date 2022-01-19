@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class LoseMenu : MonoBehaviour
 {
     public GameObject LoseMenuUI;
     public CameraShake cameraShake;
+
+
     void FixedUpdate()
     {
         if (CollisionDetection.GameOver)
@@ -28,7 +31,6 @@ public class LoseMenu : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;
-        WordTimer.wordFallSpeed = 1.5f;
         ScoreSystem.score = 0;
         LoseMenuUI.SetActive(false);
         CollisionDetection.GameOver = false;
@@ -39,16 +41,25 @@ public class LoseMenu : MonoBehaviour
         LoseMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
+    public void LoadLevels()
+    {
+        Time.timeScale = 1f;
+        ScoreSystem.score = 0;
+        LoseMenuUI.SetActive(false);
+        CollisionDetection.GameOver = false;
+        SceneManager.LoadScene("Menu");
+    }
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        WordTimer.wordFallSpeed = 1.5f;
         ScoreSystem.score = 0;
         CollisionDetection.GameOver = false;
         SceneManager.LoadScene("LoadingScreen");
     }
     public void QuitGame()
     {
+        Time.timeScale = 1f;
+        ScoreSystem.score = 0;
         Application.Quit();
     }
 }
