@@ -1,4 +1,3 @@
 # SpeedTyper
 Word Falling Fast Typing Game
-<h2> Steam release date:</h2>
-<h1>2022</h1>
+<h2>Planned release in Steam -> Oct/Nov 2022</h2>
