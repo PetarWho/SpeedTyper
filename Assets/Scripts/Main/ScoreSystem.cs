@@ -15,6 +15,8 @@ public class ScoreSystem : MonoBehaviour
     public TextMeshProUGUI scoreDisplay;
     public TextMeshProUGUI highScoreDisplay;
     public static bool NewHighScore;
+    
+    public static Dictionary<string, int> WinTrophies = new Dictionary<string, int>();
 
     public static int score = 0;
     public static int highScore = 0;
