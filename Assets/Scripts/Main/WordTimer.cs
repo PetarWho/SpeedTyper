@@ -10,7 +10,7 @@ public class WordTimer : MonoBehaviour {
 	public static float wordFallSpeed;
 	public float wordDelay;
 	private float nextWordTime = 0f;
-
+	public static long scoreToWin = long.MaxValue;
 	private void Start()
 	{
 		switch (LevelLoader.staticDifficulty)
@@ -20,24 +20,28 @@ public class WordTimer : MonoBehaviour {
 				wordDelay = 2f;
 				Word.randomNumberStart = 1;
 				Word.randomNumberEnd = 51;
+				scoreToWin = 200;
 				break;
 			case "Normal":
 				wordFallSpeed = 1.4f;
 				wordDelay = 1.5f;
 				Word.randomNumberStart = 1;
 				Word.randomNumberEnd = 31;
+				scoreToWin = 300;
 				break;
 			case "Hard":
 				wordFallSpeed = 1.65f;
 				wordDelay = 1.4f;
 				Word.randomNumberStart = 1;
 				Word.randomNumberEnd = 23;
+				scoreToWin = 400;
 				break;
 			case "Insane":
 				wordFallSpeed = 1.8f;
 				wordDelay = 1.3f;
 				Word.randomNumberStart = 1;
 				Word.randomNumberEnd = 16;
+				scoreToWin = 500;
 				break;
 			case "Endless":
 				wordFallSpeed = 1.5f;

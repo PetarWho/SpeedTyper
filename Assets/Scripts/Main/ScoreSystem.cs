@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class ScoreSystem : MonoBehaviour
     }
 
     public TextMeshProUGUI scoreDisplay;
-    public TextMeshProUGUI highScoreDisplay;
+    public List<TextMeshProUGUI> highScoreDisplays = new List<TextMeshProUGUI>();
     public static bool NewHighScore;
     
     public static Dictionary<string, int> WinTrophies = new Dictionary<string, int>();
@@ -24,9 +25,9 @@ public class ScoreSystem : MonoBehaviour
     {
         scoreDisplay.SetText("Score: "+score);
         if(NewHighScore)
-            highScoreDisplay.SetText(("NEW High Score: " + highScore));
+            highScoreDisplays.ForEach(x=>x.SetText(("NEW High Score: " + highScore)));
         else
-        highScoreDisplay.SetText(("High Score: " + highScore));
+            highScoreDisplays.ForEach(x=>x.SetText(("High Score: " + highScore)));
     }
 
      static void Save()
