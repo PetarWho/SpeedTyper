@@ -14,15 +14,23 @@ public class SettingsMenuFade : MonoBehaviour
     {
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
+        PressESCtoGoToDifferentScene.escHasOverlay = true;
         fadedIn = true;
         StartCoroutine(FadeCanvasGroup(canvasGroup, canvasGroup.alpha, 1));
+
     }
     public void FadeOut(CanvasGroup canvasGroup)
     {
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
+        PressESCtoGoToDifferentScene.escHasOverlay = false;
         fadedIn = false;
         StartCoroutine(FadeCanvasGroup(canvasGroup, canvasGroup.alpha, 0));
+    }
+
+    public void blockRaycastsOnClick(GameObject menuToBlockRaycast)
+    {
+        menuToBlockRaycast.GetComponents<Image>()[0].raycastTarget=true;
     }
     public IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float start, float end, float lerpTime = 0.3f)
     {

@@ -44,10 +44,15 @@ public class WordTimer : MonoBehaviour {
 				scoreToWin = 500;
 				break;
 			case "Endless":
-				wordFallSpeed = 1.5f;
+				wordFallSpeed = 1.25f;
 				wordDelay = 1.45f;
 				Word.randomNumberStart = 1;
 				Word.randomNumberEnd = 26;
+				break;
+			case "Custom":
+				wordFallSpeed = GetCustomSettings.CustomSpeed;
+				wordDelay = GetCustomSettings.CustomDelay;
+				scoreToWin = GetCustomSettings.CustomScore;
 				break;
 		}
 		

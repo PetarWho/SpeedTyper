@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class PressESCtoGoToDifferentScene : MonoBehaviour
 {
     [SerializeField] private string sceneName;
+    public static bool escHasOverlay = false;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!escHasOverlay && Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene(sceneName);
     }
 }
