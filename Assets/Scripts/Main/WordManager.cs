@@ -27,14 +27,20 @@ public class WordManager : MonoBehaviour {
 		{
 			if (hasActiveWord)
 			{
+				//!Char.IsLetter(letter) || letter == '-'   -> this way only valid word inputs will count
+				//returning when input is control (caps/backspace/ctrl, etc)
+				if (Char.IsControl(letter))
+				{
+					return;
+				}
+				
 				if (activeWord.GetNextLetter() == letter)
 				{
 					activeWord.TypeLetter();
 				}
 				else
 				{
-					//Char.IsLetter(letter) || letter == '-'   -> this way only valid word inputs will count
-					if (ScoreSystem.score > 0 && !Char.IsControl(letter))
+					if (ScoreSystem.score > 0)
 					{
 						ScoreSystem.score -= 1;
 					}
