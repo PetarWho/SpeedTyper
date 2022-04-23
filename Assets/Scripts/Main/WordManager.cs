@@ -22,6 +22,7 @@ public class WordManager : MonoBehaviour {
 
 	public void TypeLetter (char letter)
 	{
+		letter = Char.ToLower(letter);
 		if (!PauseMenu.GameIsPaused)
 		{
 			if (hasActiveWord)
@@ -32,10 +33,10 @@ public class WordManager : MonoBehaviour {
 				}
 				else
 				{
-					if (ScoreSystem.score > 0)
+					//Char.IsLetter(letter) || letter == '-'   -> this way only valid word inputs will count
+					if (ScoreSystem.score > 0 && !Char.IsControl(letter))
 					{
 						ScoreSystem.score -= 1;
-						
 					}
 				}
 			}
