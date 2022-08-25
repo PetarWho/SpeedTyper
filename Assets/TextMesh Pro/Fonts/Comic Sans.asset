@@ -160,14 +160,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: COMIC SDF
+  m_Name: Comic Sans
   m_EditorClassIdentifier: 
-  hashCode: -843350982
+  hashCode: 312758299
   material: {fileID: -177025682402424080}
-  materialHashCode: 1933091290
+  materialHashCode: -37092133
   m_Version: 1.1.0
-  m_SourceFontFileGUID: 0579bbbf4003ba24c9082e7eccb5a4d9
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 0579bbbf4003ba24c9082e7eccb5a4d9,
+  m_SourceFontFileGUID: 171e93621e9429e438561e435e4b1d32
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 171e93621e9429e438561e435e4b1d32,
     type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0

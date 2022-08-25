@@ -53,6 +53,8 @@ public class WordTimer : MonoBehaviour {
 				wordFallSpeed = GetCustomSettings.CustomSpeed;
 				wordDelay = GetCustomSettings.CustomDelay;
 				scoreToWin = GetCustomSettings.CustomScore;
+				Word.randomNumberStart = 1;
+				Word.randomNumberEnd = -1;
 				break;
 		}
 		

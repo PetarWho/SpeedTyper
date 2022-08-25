@@ -23,17 +23,7 @@ public class GetCustomSettings : MonoBehaviour
         float cs = float.Parse(_customSpeed.text.ToString());
         float cd = float.Parse(_customDelay.text.ToString());
         int csc = int.Parse(_customScore.text.ToString());
-
-        // if (cs > 20) cs = 20f;
-        //
-        // if (cd * 50 <= cs)
-        // {
-        //     CustomDelay = cd;
-        // }
-        // else
-        // {
-        //     CustomDelay = cs / 50;
-        // }
+        
         CustomDelay = cd;
         CustomSpeed = cs;
         CustomScore = csc;

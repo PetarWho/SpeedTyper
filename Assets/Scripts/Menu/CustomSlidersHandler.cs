@@ -18,10 +18,10 @@ public class CustomSlidersHandler : MonoBehaviour
     private int _score;
 
     private float maxSpeed = 20f;
-    private float minSpeed = 0.5f;
-    private float maxDelay = 2f;
-    private float minDelay = 0.1f;
-    private int minScore = 5;
+    private float minSpeed = 1f;
+    private float maxDelay = 2.5f;
+    private float minDelay = 0.5f;
+    private int minScore = 10;
 
     private void Start()
     {
