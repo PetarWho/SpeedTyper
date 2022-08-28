@@ -6,10 +6,9 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-    public static int coins;
     public TextMeshProUGUI coinDisplay;
     void Update()
     {
-        coinDisplay.SetText(coins.ToString());
+        coinDisplay.SetText(User.Coins.ToString());
     }
 }

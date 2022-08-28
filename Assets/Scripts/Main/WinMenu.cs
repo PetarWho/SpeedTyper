@@ -12,11 +12,29 @@ public class WinMenu : MonoBehaviour
     {
         if (ScoreSystem.score >= WordTimer.scoreToWin)
         {
+            User.IncreaseExp(WordTimer.expGive);
+            
+            switch (LevelLoader.staticDifficulty)
+            {
+                case "Easy":
+                    User.EasyWins++;
+                    break;
+                case "Normal":
+                    User.NormalWins++;
+                    break;
+                case "Hard":
+                    User.HardWins++;
+                    break;
+                case "Insane":
+                    User.InsaneWins++;
+                    break;
+            }
+            
             PauseMenu.GameIsPaused = true;
             Pause();
-            if (ScoreSystem.score > ScoreSystem.highScore)
+            if (ScoreSystem.score > User.HighScore)
             {
-                ScoreSystem.highScore = ScoreSystem.score;
+                User.HighScore = ScoreSystem.score;
                 ScoreSystem.NewHighScore = true;
             }
             else

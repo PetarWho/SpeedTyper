@@ -15,9 +15,9 @@ public class LoseMenu : MonoBehaviour
         if (CollisionDetection.GameOver)
         {
             StartCoroutine(cameraShake.Shake(2f, -0.1f));
-            if (ScoreSystem.score > ScoreSystem.highScore)
+            if (ScoreSystem.score > User.HighScore)
             {
-                ScoreSystem.highScore = ScoreSystem.score;
+                User.HighScore = ScoreSystem.score;
                 ScoreSystem.NewHighScore = true;
             }
             else

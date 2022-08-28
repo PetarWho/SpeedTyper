@@ -10,7 +10,7 @@ public class ScoreSystem : MonoBehaviour
     private void Awake()
     {
         PauseMenu.GameIsPaused = false;
-        Load();
+        SaveSystem.Load();
     }
 
     public TextMeshProUGUI scoreDisplay;
@@ -20,38 +20,14 @@ public class ScoreSystem : MonoBehaviour
     public static Dictionary<string, int> WinTrophies = new Dictionary<string, int>();
 
     public static int score = 0;
-    public static int highScore = 0;
     void Update()
     {
         scoreDisplay.SetText("Score: "+score);
         if(NewHighScore)
-            highScoreDisplays.ForEach(x=>x.SetText(("NEW High Score: " + highScore)));
+            highScoreDisplays.ForEach(x=>x.SetText(("NEW High Score: " + User.HighScore)));
         else
-            highScoreDisplays.ForEach(x=>x.SetText(("High Score: " + highScore)));
+            highScoreDisplays.ForEach(x=>x.SetText(("High Score: " + User.HighScore)));
     }
 
-     static void Save()
-    {
-        PlayerPrefs.SetString("highScore", highScore.ToString());
-        PlayerPrefs.SetString("coins", CoinScript.coins.ToString());
-    }
-
-     static void Load()
-    {
-        highScore = int.Parse(PlayerPrefs.GetString("highScore", "0"));
-        CoinScript.coins = int.Parse(PlayerPrefs.GetString("coins", "0"));
-    }
-
-    private void FixedUpdate()
-    {
-        if(Input.GetKeyDown(KeyCode.Tab))
-        {
-            PlayerPrefs.DeleteAll();
-            Load();
-        }
-        else
-        {
-            Save();
-        }
-    }
+     
 }

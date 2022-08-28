@@ -28,7 +28,7 @@ public class WordManager : MonoBehaviour {
 			if (hasActiveWord)
 			{
 				//!Char.IsLetter(letter) || letter == '-'   -> this way only valid word inputs will count
-				//returning when input is control (caps/backspace/ctrl, etc)
+				//returning when input is control (caps/backspace/ctrl, etc)  - Better way tbh
 				if (Char.IsControl(letter))
 				{
 					return;
@@ -66,7 +66,7 @@ public class WordManager : MonoBehaviour {
 				hasActiveWord = false;
 				if (activeWord.isGolden)
 				{
-					CoinScript.coins += activeWord.word.Length;
+					User.Coins += activeWord.word.Length;
 					goldAnim.SetBool("Typed",true);
 					StartCoroutine(WaitAndStop());
 				}
