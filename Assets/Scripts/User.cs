@@ -18,7 +18,7 @@ public class User : MonoBehaviour
     public static int HighScore { get; set; } = 0;
     public static int Coins { get; set; } = 0;
     public static bool HasCompletedCampaign { get; set; } = false;
-
+    public static int PerfectGames { get; set; } = 0;
     public static void IncreaseExp(int amount)
     {
         TotalExp += amount;

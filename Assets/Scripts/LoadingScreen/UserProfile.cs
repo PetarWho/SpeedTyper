@@ -21,12 +21,9 @@ public class UserProfile : MonoBehaviour
     {
         int level = LevelingSystem.GetCurrentLevel(User.TotalExp);
         currentLevelText.text = $"Level {level}";
-        int expNeeded = LevelingSystem.GetExpNeeded(User.Level);
+        long expNeeded = LevelingSystem.GetExpNeeded(User.Level);
         expNeededText.text = $"{expNeeded - User.Exp} xp til next level";
         usernameText.text = User.Username;
-        expBar.value = LevelingSystem.ExpBarValue;
-        Debug.Log("BAR VALUE " + LevelingSystem.ExpBarValue );
-        Debug.Log(User.Exp + " exp");
-        Debug.Log(User.Level + " level");
+        expBar.value = (float)(User.Exp)/(float)LevelingSystem.GetExpNeeded(User.Level);
     }
 }

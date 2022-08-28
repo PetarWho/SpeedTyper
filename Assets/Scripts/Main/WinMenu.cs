@@ -29,7 +29,6 @@ public class WinMenu : MonoBehaviour
                     User.InsaneWins++;
                     break;
             }
-            
             PauseMenu.GameIsPaused = true;
             Pause();
             if (ScoreSystem.score > User.HighScore)
@@ -39,6 +38,8 @@ public class WinMenu : MonoBehaviour
             }
             else
                 ScoreSystem.NewHighScore = false;
+            
+            SaveSystem.Save();
         }
     }
 
