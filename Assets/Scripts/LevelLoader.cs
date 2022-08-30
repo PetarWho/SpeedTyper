@@ -8,12 +8,15 @@ public class LevelLoader : MonoBehaviour
     public GameObject loadingScreen;
     public Slider slider;
     public string difficulty;
-    public static string staticDifficulty;
+    public static string staticDifficulty = string.Empty;
 
     public void LoadLevel(string sceneName)
     {
+        if (staticDifficulty == string.Empty)
+        {
+            staticDifficulty = difficulty;
+        }
         slider.gameObject.SetActive(true);
-        staticDifficulty = difficulty;
         StartCoroutine(LoadAsynchronously(sceneName));
     }
 

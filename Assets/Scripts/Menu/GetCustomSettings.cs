@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using TMPro;
-using TMPro.Examples;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GetCustomSettings : MonoBehaviour
 {

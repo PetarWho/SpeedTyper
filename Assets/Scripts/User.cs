@@ -1,7 +1,4 @@
-using System;
-using UnityEditor.Build.Reporting;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class User : MonoBehaviour
