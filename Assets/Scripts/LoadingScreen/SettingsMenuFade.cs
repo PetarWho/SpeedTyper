@@ -6,6 +6,7 @@ public class SettingsMenuFade : MonoBehaviour
 {
     public CanvasGroup settingsCanvasGroup;
     public CanvasGroup helpCanvasGroup;
+    public CanvasGroup changeNameCanvasGroup;
     private bool fadedIn = false;
 
     public void FadeIn(CanvasGroup canvasGroup)

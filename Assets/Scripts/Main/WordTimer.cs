@@ -26,14 +26,7 @@ public class WordTimer : MonoBehaviour
             }
             else
             {
-                if (User.CampaignLevel == 99)
-                {
-                    expGive = 1000;
-                }
-                else
-                {
-                    expGive = 100;
-                }
+                expGive = User.CampaignLevel == 99 ? 1000 : 100;
             }
         }
 

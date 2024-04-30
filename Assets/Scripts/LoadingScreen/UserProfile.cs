@@ -22,7 +22,7 @@ public class UserProfile : MonoBehaviour
     {
         SaveSystem.Load();
     }
-    
+
     void Start()
     {
         usernameText.text = User.Username;
@@ -42,5 +42,14 @@ public class UserProfile : MonoBehaviour
         coinText.text = User.Coins.ToString();
         totalExp.text = User.TotalExp.ToString();
         userExp.text = User.Exp.ToString();
+    }
+
+    public void RenameUser(TextMeshProUGUI newNameElementTMP)
+    {
+        if (newNameElementTMP.text.Length <= 3) return;
+
+        User.Username = newNameElementTMP.text.Length <= 16 ? newNameElementTMP.text : newNameElementTMP.text[..16];
+        SaveSystem.Save();
+        usernameText.text = User.Username;
     }
 }
