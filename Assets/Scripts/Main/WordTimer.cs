@@ -15,30 +15,25 @@ public class WordTimer : MonoBehaviour
     {
         if (int.TryParse(LevelLoader.staticDifficulty, out int level))
         {
-            if (level > 0 && level <= 100)
+            wordFallSpeed = 0.5f + (float)level / 75;
+            wordDelay = 2f - (float)level / 175;
+            Word.randomNumberStart = 1;
+            Word.randomNumberEnd = 51 - (int)Math.Floor((double)level / 4);
+            scoreToWin = (int)(50 + ((level - 1) / 99.0) * (1500 - 50));
+            if (level < 100)
             {
-                wordFallSpeed = 0.5f + (float) level / 75;
-                wordDelay = 2f - (float) level / 175;
-                Word.randomNumberStart = 1;
-                Word.randomNumberEnd = 51 - (int) Math.Floor((double) level / 4);
-                scoreToWin = 5 * (level + 3);
-                if (level < 50)
-                {
-                    expGive = 0;
-                }
-                else
-                {
-                    expGive = level - 40;
-                }
+                expGive = 0;
             }
             else
             {
-                wordFallSpeed = 1f;
-                wordDelay = 100f;
-                Word.randomNumberStart = 1;
-                Word.randomNumberEnd = -1;
-                scoreToWin = 1;
-                expGive = 0;
+                if (User.CampaignLevel == 99)
+                {
+                    expGive = 1000;
+                }
+                else
+                {
+                    expGive = 100;
+                }
             }
         }
 

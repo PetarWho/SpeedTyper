@@ -37,7 +37,7 @@ public class UserProfile : MonoBehaviour
         normalWins.text = $"Normal Wins: {User.NormalWins}";
         hardWins.text = $"Hard Wins: {User.HardWins}";
         insaneWins.text = $"INSANE Wins: {User.InsaneWins}";
-        campaignLevel.text = "Campaign Level: " + (User.CampaignLevel > 100 ? "MAX" : User.CampaignLevel.ToString());
+        campaignLevel.text = "Campaign Level: " + (User.CampaignLevel == 100 ? "MAX" : User.CampaignLevel.ToString());
         perfectGames.text = $"Perfect Games: {User.PerfectGames}";
         coinText.text = User.Coins.ToString();
         totalExp.text = User.TotalExp.ToString();
