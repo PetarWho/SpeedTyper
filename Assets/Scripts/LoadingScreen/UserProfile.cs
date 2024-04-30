@@ -15,6 +15,8 @@ public class UserProfile : MonoBehaviour
     [SerializeField] private TextMeshProUGUI campaignLevel;
     [SerializeField] private TextMeshProUGUI perfectGames;
     [SerializeField] private TextMeshProUGUI coinText;
+    [SerializeField] private TextMeshProUGUI totalExp;
+    [SerializeField] private TextMeshProUGUI userExp;
 
     private void Awake()
     {
@@ -38,5 +40,7 @@ public class UserProfile : MonoBehaviour
         campaignLevel.text = "Campaign Level: " + (User.CampaignLevel > 100 ? "MAX" : User.CampaignLevel.ToString());
         perfectGames.text = $"Perfect Games: {User.PerfectGames}";
         coinText.text = User.Coins.ToString();
+        totalExp.text = User.TotalExp.ToString();
+        userExp.text = User.Exp.ToString();
     }
 }

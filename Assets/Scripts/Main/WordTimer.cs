@@ -51,7 +51,7 @@ public class WordTimer : MonoBehaviour
                     wordDelay = 2f;
                     Word.randomNumberStart = 1;
                     Word.randomNumberEnd = 51;
-                    scoreToWin = 30;
+                    scoreToWin = 3;
                     expGive = 105;
                     break;
                 case "Normal":

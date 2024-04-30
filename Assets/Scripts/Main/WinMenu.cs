@@ -17,8 +17,7 @@ public class WinMenu : MonoBehaviour
             User.IncreaseExp(WordTimer.expGive);
 
             string currentDifficulty = LevelLoader.staticDifficulty;
-
-
+            
             switch (currentDifficulty)
             {
                 case "Easy":
@@ -61,7 +60,6 @@ public class WinMenu : MonoBehaviour
             {
                 User.PerfectGames++;
             }
-
 
             SaveSystem.Save();
         }

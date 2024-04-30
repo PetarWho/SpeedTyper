@@ -30,6 +30,7 @@ public class SaveSystem : MonoBehaviour
         User.HardWins = int.Parse(PlayerPrefs.GetString("userHardWins", "0"));
         User.InsaneWins = int.Parse(PlayerPrefs.GetString("userInsaneWins", "0"));
         User.Username = PlayerPrefs.GetString("userUsername", User.Username);
+        User.PerfectGames = int.Parse(PlayerPrefs.GetString("userPerfectGames", "0"));
         User.CampaignLevel = int.Parse(PlayerPrefs.GetString("userCampaignLevel", "1"));
     }
 
