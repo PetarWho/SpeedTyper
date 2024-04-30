@@ -27,6 +27,7 @@ public class WordManager : MonoBehaviour {
 			if (hasActiveWord)
 			{
 				//!Char.IsLetter(letter) || letter == '-'   -> this way only valid word inputs will count
+
 				//returning when input is control (caps/backspace/ctrl, etc)  - Better way tbh
 				if (Char.IsControl(letter))
 				{

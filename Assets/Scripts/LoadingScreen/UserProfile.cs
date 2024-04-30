@@ -19,7 +19,7 @@ public class UserProfile : MonoBehaviour
         int level = LevelingSystem.GetCurrentLevel(User.TotalExp);
         currentLevelText.text = $"Level {level}";
         long expNeeded = LevelingSystem.GetExpNeeded(User.Level);
-        expNeededText.text = $"{expNeeded - User.Exp} xp til next level";
+        expNeededText.text = $"{expNeeded - User.Exp} xp for next level";
         usernameText.text = User.Username;
         expBar.value = (float)(User.Exp)/(float)LevelingSystem.GetExpNeeded(User.Level);
     }

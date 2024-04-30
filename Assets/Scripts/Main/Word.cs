@@ -4,18 +4,35 @@ using Random = UnityEngine.Random;
 [System.Serializable]
 public class Word
 {
-
+	/// <summary>
+	/// The word to type
+	/// </summary>
 	public string word;
+
+	/// <summary>
+	/// Index of the next letter to be typed
+	/// </summary>
 	private int typeIndex;
 
-	WordDisplay display;
-
+	/// <summary>
+	/// Indicates if the word is golden (gives coins)
+	/// </summary>
 	public bool isGolden;
+
+	/// <summary>
+	/// Golden word start number. Used as starting value for golden word roll. It's best idea to keep it at 1.
+	/// </summary>
+	public static int randomNumberStart;
+
+	/// <summary>
+	/// Golden word end numer. Used as last value (exclusive) for golden word roll. Random number roll between randomNumberStart and randomNumberEnd and if the rolled number is equal to 2, the word will be golden.
+	/// </summary>
+	public static int randomNumberEnd;
+
 	private int rnd;
 	private Color goldColor;
 	private Color normalColor;
-	public static int randomNumberStart;
-	public static int randomNumberEnd;
+	WordDisplay display;
 	public Word (string _word, WordDisplay _display)
 	{
 		ColorUtility.TryParseHtmlString("#FDBD25", out goldColor);
@@ -28,6 +45,7 @@ public class Word
 		display.SetWord(word, isGolden ? goldColor : normalColor);
 	}
 
+	
 	public char GetNextLetter ()
 	{
 		return word[typeIndex];

@@ -51,7 +51,7 @@ public class WordTimer : MonoBehaviour
                     wordDelay = 2f;
                     Word.randomNumberStart = 1;
                     Word.randomNumberEnd = 51;
-                    scoreToWin = 200;
+                    scoreToWin = 300;
                     expGive = 10;
                     break;
                 case "Normal":
@@ -59,27 +59,27 @@ public class WordTimer : MonoBehaviour
                     wordDelay = 1.5f;
                     Word.randomNumberStart = 1;
                     Word.randomNumberEnd = 31;
-                    scoreToWin = 300;
+                    scoreToWin = 500;
                     expGive = 20;
                     break;
                 case "Hard":
                     wordFallSpeed = 1.65f;
                     wordDelay = 1.4f;
                     Word.randomNumberStart = 1;
-                    Word.randomNumberEnd = 23;
-                    scoreToWin = 400;
-                    expGive = 40;
+                    Word.randomNumberEnd = 21;
+                    scoreToWin = 1000;
+                    expGive = 50;
                     break;
                 case "Insane":
                     wordFallSpeed = 1.8f;
-                    wordDelay = 1.3f;
+                    wordDelay = 1.25f;
                     Word.randomNumberStart = 1;
-                    Word.randomNumberEnd = 16;
-                    scoreToWin = 500;
-                    expGive = 80;
+                    Word.randomNumberEnd = 11;
+                    scoreToWin = 2000;
+                    expGive = 150;
                     break;
                 case "Endless":
-                    wordFallSpeed = 1.25f;
+                    wordFallSpeed = 1.3f;
                     wordDelay = 1.45f;
                     Word.randomNumberStart = 1;
                     Word.randomNumberEnd = 26;
