@@ -14,7 +14,8 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetString("userHardWins", User.HardWins.ToString());
         PlayerPrefs.SetString("userInsaneWins", User.InsaneWins.ToString());
         PlayerPrefs.SetString("userUsername", User.Username);
-        PlayerPrefs.SetString("UserPerfectGames", User.PerfectGames.ToString());
+        PlayerPrefs.SetString("userPerfectGames", User.PerfectGames.ToString());
+        PlayerPrefs.SetString("userCampaignLevel", User.CampaignLevel.ToString());
     }
 
     public static void Load()
@@ -29,7 +30,7 @@ public class SaveSystem : MonoBehaviour
         User.HardWins = int.Parse(PlayerPrefs.GetString("userHardWins", "0"));
         User.InsaneWins = int.Parse(PlayerPrefs.GetString("userInsaneWins", "0"));
         User.Username = PlayerPrefs.GetString("userUsername", User.Username);
-        User.PerfectGames = int.Parse(PlayerPrefs.GetString("UserPerfectGames", "0"));
+        User.CampaignLevel = int.Parse(PlayerPrefs.GetString("userCampaignLevel", "1"));
     }
 
     private void FixedUpdate()

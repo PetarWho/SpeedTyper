@@ -1,18 +1,25 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class WinMenu : MonoBehaviour
 {
     public GameObject WinMenuUI;
+    [SerializeField] private TextMeshProUGUI WinText;
 
+    public static bool PerfectGame = true;
 
     void FixedUpdate()
     {
         if (ScoreSystem.score >= WordTimer.scoreToWin)
         {
             User.IncreaseExp(WordTimer.expGive);
-            
-            switch (LevelLoader.staticDifficulty)
+
+            string currentDifficulty = LevelLoader.staticDifficulty;
+
+
+            switch (currentDifficulty)
             {
                 case "Easy":
                     User.EasyWins++;
@@ -36,9 +43,37 @@ public class WinMenu : MonoBehaviour
             }
             else
                 ScoreSystem.NewHighScore = false;
-            
+
+            if (int.TryParse(currentDifficulty, out int level))
+            {
+                if (User.CampaignLevel < level)
+                {
+                    User.CampaignLevel = level;
+                }
+                WinText.text = $"You completed campaign level {level}";
+            }
+            else
+            {
+                WinText.text = $"You won on {currentDifficulty} difficulty";
+            }
+
+            if (PerfectGame)
+            {
+                User.PerfectGames++;
+            }
+
+
             SaveSystem.Save();
         }
+    }
+
+    public void PlayAgain()
+    {
+        Time.timeScale = 1f;
+        ScoreSystem.score = 0;
+        WinMenuUI.SetActive(false);
+        CollisionDetection.GameOver = false;
+        SceneManager.LoadScene("Main");
     }
 
     void Pause()

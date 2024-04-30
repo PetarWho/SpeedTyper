@@ -3,43 +3,36 @@ using UnityEngine;
 
 public class LevelingSystem : MonoBehaviour
 {
-    private const int startingExpNeeded = 100;
-    
+    private const int baseExp = 100;
+
     public static int GetCurrentLevel(int currentExp)
     {
-        int i = 1;
-        int lvlExp = startingExpNeeded;
-        int setNewValue = User.Exp;
-        
-        while (currentExp >= lvlExp)
+        int level = 1;
+        int requiredExp = baseExp;
+
+        while (currentExp >= requiredExp)
         {
-            currentExp -= lvlExp;
-            lvlExp += (int)Math.Floor(0.1*lvlExp);
-            i++;
-            setNewValue = currentExp;
+            currentExp -= requiredExp;
+            level++;
+            requiredExp = GetExpNeeded(level);
         }
 
-        User.Exp = setNewValue;
-        User.Level = i;
-        return i;
+        User.Exp = currentExp;
+        User.Level = level;
+
+        return level;
     }
-    
+
     public static int GetExpNeeded(int level)
     {
-        int lvlExp = startingExpNeeded;
-
-        for (int j = 1; j < level; j++)
-        {
-            lvlExp += (int)Math.Floor(0.1*lvlExp);
-        }
-        
-        return lvlExp;
+        int scalingFactor = 3;
+        return (int)(baseExp + Math.Pow((User.Level * scalingFactor),1.5));
     }
-    
+
     // public static int GetCurrentLevelByTotalExp(long totalExp)
     // {
     //     int i = 1;
-    //     int lvlExp = startingExpNeeded;
+    //     int lvlExp = baseExp;
     //     while (totalExp >= lvlExp)
     //     {
     //         lvlExp += (int)Math.Floor(0.1*lvlExp);
@@ -51,7 +44,7 @@ public class LevelingSystem : MonoBehaviour
 
     // public static long GetTotalExpNeeded(int level)
     // {
-    //     int lvlExp = startingExpNeeded;
+    //     int lvlExp = baseExp;
     //     long total = lvlExp;
     //     
     //     for (int j = 1; j < level; j++)
