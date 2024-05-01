@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -10,6 +11,15 @@ public class WinMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI PerfectText;
 
     public static bool PerfectGame;
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
+        ScoreSystem.score = 0;
+        WinMenuUI.SetActive(false);
+        CollisionDetection.GameOver = false;
+        PerfectText.gameObject.SetActive(false);
+    }
 
     void FixedUpdate()
     {
@@ -70,11 +80,6 @@ public class WinMenu : MonoBehaviour
 
     public void PlayAgain()
     {
-        Time.timeScale = 1f;
-        ScoreSystem.score = 0;
-        WinMenuUI.SetActive(false);
-        CollisionDetection.GameOver = false;
-        PerfectText.gameObject.SetActive(false);
         SceneManager.LoadScene("Main");
     }
 
@@ -83,32 +88,5 @@ public class WinMenu : MonoBehaviour
         WinMenuUI.SetActive(true);
         Time.timeScale = 0f;
         PauseMenu.GameIsPaused = true;
-    }
-
-    public void LoadLevels()
-    {
-        Time.timeScale = 1f;
-        ScoreSystem.score = 0;
-        WinMenuUI.SetActive(false);
-        CollisionDetection.GameOver = false;
-        PerfectText.gameObject.SetActive(false);
-        SceneManager.LoadScene("Menu");
-    }
-
-    public void LoadMenu()
-    {
-        Time.timeScale = 1f;
-        ScoreSystem.score = 0;
-        CollisionDetection.GameOver = false;
-        PerfectText.gameObject.SetActive(false);
-        SceneManager.LoadScene("LoadingScreen");
-    }
-
-    public void QuitGame()
-    {
-        Time.timeScale = 1f;
-        ScoreSystem.score = 0;
-        PerfectText.gameObject.SetActive(false);
-        Application.Quit();
     }
 }

@@ -43,20 +43,12 @@ public class LoseMenu : MonoBehaviour
         Time.timeScale = 1f;
         ScoreSystem.score = 0;
         LoseMenuUI.SetActive(false);
-        CollisionDetection.GameOver = false;
         SceneManager.LoadScene("Menu");
     }
     public void LoadMenu()
     {
         Time.timeScale = 1f;
         ScoreSystem.score = 0;
-        CollisionDetection.GameOver = false;
         SceneManager.LoadScene("LoadingScreen");
-    }
-    public void QuitGame()
-    {
-        Time.timeScale = 1f;
-        ScoreSystem.score = 0;
-        Application.Quit();
     }
 }
