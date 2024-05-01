@@ -7,8 +7,9 @@ public class WinMenu : MonoBehaviour
 {
     public GameObject WinMenuUI;
     [SerializeField] private TextMeshProUGUI WinText;
+    [SerializeField] private TextMeshProUGUI PerfectText;
 
-    public static bool PerfectGame = true;
+    public static bool PerfectGame;
 
     void FixedUpdate()
     {
@@ -50,10 +51,12 @@ public class WinMenu : MonoBehaviour
                     User.CampaignLevel = level;
                 }
                 WinText.text = $"You completed campaign level {level}";
+                if (PerfectGame) PerfectText.gameObject.SetActive(true);
             }
             else
             {
                 WinText.text = $"You won on {currentDifficulty} difficulty";
+                if (PerfectGame) PerfectText.gameObject.SetActive(true);
             }
 
             if (PerfectGame)
@@ -71,6 +74,7 @@ public class WinMenu : MonoBehaviour
         ScoreSystem.score = 0;
         WinMenuUI.SetActive(false);
         CollisionDetection.GameOver = false;
+        PerfectText.gameObject.SetActive(false);
         SceneManager.LoadScene("Main");
     }
 
@@ -87,6 +91,7 @@ public class WinMenu : MonoBehaviour
         ScoreSystem.score = 0;
         WinMenuUI.SetActive(false);
         CollisionDetection.GameOver = false;
+        PerfectText.gameObject.SetActive(false);
         SceneManager.LoadScene("Menu");
     }
 
@@ -95,6 +100,7 @@ public class WinMenu : MonoBehaviour
         Time.timeScale = 1f;
         ScoreSystem.score = 0;
         CollisionDetection.GameOver = false;
+        PerfectText.gameObject.SetActive(false);
         SceneManager.LoadScene("LoadingScreen");
     }
 
@@ -102,6 +108,7 @@ public class WinMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         ScoreSystem.score = 0;
+        PerfectText.gameObject.SetActive(false);
         Application.Quit();
     }
 }

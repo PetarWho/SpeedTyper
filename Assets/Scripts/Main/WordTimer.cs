@@ -13,6 +13,7 @@ public class WordTimer : MonoBehaviour
 
     private void Start()
     {
+        WinMenu.PerfectGame = true;
         if (int.TryParse(LevelLoader.staticDifficulty, out int level))
         {
             wordFallSpeed = 0.5f + (float)level / 75;
