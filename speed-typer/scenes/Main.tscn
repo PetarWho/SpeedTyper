@@ -1,0 +1,139 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/main/word_spawner.gd" id=1]
+[ext_resource type="Script" path="res://scripts/main/word_manager.gd" id=2]
+[ext_resource type="Script" path="res://scripts/main/word_timer.gd" id=3]
+[ext_resource type="Script" path="res://scripts/main/word_input.gd" id=4]
+[ext_resource type="Script" path="res://scripts/main/score_system.gd" id=5]
+[ext_resource type="Script" path="res://scripts/main/pause_menu.gd" id=6]
+[ext_resource type="Script" path="res://scripts/main/lose_menu.gd" id=7]
+[ext_resource type="Script" path="res://scripts/main/win_menu.gd" id=8]
+[ext_resource type="Script" path="res://scripts/main/collision_detection.gd" id=9]
+[ext_resource type="Script" path="res://scripts/main/coin_script.gd" id=10]
+[ext_resource type="PackedScene" path="res://scenes/word_label.tscn" id=11]
+[ext_resource type="Script" path="res://scripts/main/camera_shake.gd" id=12]
+[ext_resource type="Texture2D" path="res://Assets/Pics/MainBG.png" id=13]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("13")
+
+[node name="WordCanvas" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WordSpawner" type="Node" parent="."]
+script = ExtResource("1")
+word_scene = ExtResource("11")
+word_canvas_path = NodePath("../WordCanvas")
+
+[node name="WordManager" type="Node" parent="."]
+script = ExtResource("2")
+word_spawner_path = NodePath("../WordSpawner")
+
+[node name="WordTimer" type="Node" parent="."]
+script = ExtResource("3")
+word_manager_path = NodePath("../WordManager")
+
+[node name="WordInput" type="Node" parent="."]
+script = ExtResource("4")
+word_manager_path = NodePath("../WordManager")
+
+[node name="ScoreLabel" type="Label" parent="."]
+text = "Score: 0"
+offset_left = 10.0
+offset_top = 10.0
+
+[node name="ScoreSystem" type="Node" parent="."]
+script = ExtResource("5")
+score_display_path = NodePath("../ScoreLabel")
+high_score_display_paths = []
+
+[node name="CoinLabel" type="Label" parent="."]
+script = ExtResource("10")
+text = "0"
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -110.0
+offset_top = 10.0
+
+[node name="PauseMenuUI" type="Panel" parent="."]
+visible = false
+layout_mode = 3
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+
+[node name="PauseLabel" type="Label" parent="PauseMenuUI"]
+text = "Paused"
+
+[node name="PauseMenu" type="Node" parent="."]
+script = ExtResource("6")
+pause_menu_ui_path = NodePath("../PauseMenuUI")
+
+[node name="LoseMenuUI" type="Panel" parent="."]
+visible = false
+layout_mode = 3
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+
+[node name="LoseLabel" type="Label" parent="LoseMenuUI"]
+text = "You lost!"
+
+[node name="LoseMenu" type="Node" parent="."]
+script = ExtResource("7")
+lose_menu_ui_path = NodePath("../LoseMenuUI")
+camera_shake_path = NodePath("../GameCamera")
+
+[node name="WinMenuUI" type="Panel" parent="."]
+visible = false
+layout_mode = 3
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+
+[node name="WinText" type="Label" parent="WinMenuUI"]
+text = "You win!"
+
+[node name="PerfectText" type="Label" parent="WinMenuUI"]
+text = "Perfect game!"
+visible = false
+
+[node name="WinMenu" type="Node" parent="."]
+script = ExtResource("8")
+win_menu_ui_path = NodePath("../WinMenuUI")
+win_text_path = NodePath("../WinMenuUI/WinText")
+perfect_text_path = NodePath("../WinMenuUI/PerfectText")
+
+[node name="GameCamera" type="Camera2D" parent="."]
+script = ExtResource("12")
+current = true
+
+[node name="CollisionDetection" type="Node" parent="."]
+script = ExtResource("9")

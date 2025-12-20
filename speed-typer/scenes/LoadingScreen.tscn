@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/loading/user_profile.gd" id=1]
+[ext_resource type="Script" path="res://scripts/loading/settings_menu.gd" id=2]
+[ext_resource type="Script" path="res://scripts/common/change_scene_button.gd" id=3]
+[ext_resource type="Texture2D" path="res://Assets/Pics/LoadingScreenBackground.png" id=4]
+
+[node name="LoadingScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_left = 0.25
+anchor_top = 0.2
+anchor_right = 0.75
+anchor_bottom = 0.8
+alignment = 1
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="VBox"]
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="VBox"]
+min_value = 0.0
+max_value = 1.0
+size_flags_horizontal = 3
+
+[node name="ExpNeeded" type="Label" parent="VBox"]
+[node name="CurrentLevel" type="Label" parent="VBox"]
+[node name="Username" type="Label" parent="VBox"]
+[node name="EasyWins" type="Label" parent="VBox"]
+[node name="NormalWins" type="Label" parent="VBox"]
+[node name="HardWins" type="Label" parent="VBox"]
+[node name="InsaneWins" type="Label" parent="VBox"]
+[node name="CampaignLevel" type="Label" parent="VBox"]
+[node name="PerfectGames" type="Label" parent="VBox"]
+[node name="Coin" type="Label" parent="VBox"]
+[node name="TotalExp" type="Label" parent="VBox"]
+[node name="UserExp" type="Label" parent="VBox"]
+
+[node name="SettingsHBox" type="HBoxContainer" parent="VBox"]
+size_flags_horizontal = 3
+[node name="VolumeLabel" type="Label" parent="SettingsHBox"]
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsHBox"]
+
+[node name="DisplayHBox" type="HBoxContainer" parent="VBox"]
+size_flags_horizontal = 3
+[node name="FullscreenLabel" type="Label" parent="DisplayHBox"]
+text = "Fullscreen"
+
+[node name="FullscreenCheck" type="CheckBox" parent="DisplayHBox"]
+
+[node name="ResolutionLabel" type="Label" parent="DisplayHBox"]
+text = "Resolution"
+
+[node name="ResolutionOption" type="OptionButton" parent="DisplayHBox"]
+
+[node name="ContinueButton" type="Button" parent="VBox"]
+text = "Continue"
+script = ExtResource("3")
+scene_path = "res://scenes/Menu.tscn"
+size_flags_horizontal = 3
+
+[node name="UserProfile" type="Node" parent="."]
+script = ExtResource("1")
+exp_bar_path = NodePath("../VBox/ExpBar")
+exp_needed_text_path = NodePath("../VBox/ExpNeeded")
+current_level_text_path = NodePath("../VBox/CurrentLevel")
+username_text_path = NodePath("../VBox/Username")
+easy_wins_path = NodePath("../VBox/EasyWins")
+normal_wins_path = NodePath("../VBox/NormalWins")
+hard_wins_path = NodePath("../VBox/HardWins")
+insane_wins_path = NodePath("../VBox/InsaneWins")
+campaign_level_path = NodePath("../VBox/CampaignLevel")
+perfect_games_path = NodePath("../VBox/PerfectGames")
+coin_text_path = NodePath("../VBox/Coin")
+total_exp_path = NodePath("../VBox/TotalExp")
+user_exp_path = NodePath("../VBox/UserExp")
+
+[node name="SettingsMenu" type="Node" parent="."]
+script = ExtResource("2")
+volume_slider_path = NodePath("../VBox/SettingsHBox/VolumeSlider")
+fullscreen_check_path = NodePath("../VBox/DisplayHBox/FullscreenCheck")
+resolution_option_path = NodePath("../VBox/DisplayHBox/ResolutionOption")

@@ -1,0 +1,127 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/menu/difficulty_button.gd" id=1]
+[ext_resource type="Script" path="res://scripts/common/change_scene_button.gd" id=2]
+[ext_resource type="Script" path="res://scripts/menu/custom_settings_panel.gd" id=3]
+[ext_resource type="Texture2D" path="res://Assets/Pics/Menu/CanvasBG.png" id=4]
+[ext_resource type="Texture2D" path="res://Assets/Pics/logo.png" id=5]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_left = 0.3
+anchor_top = 0.2
+anchor_right = 0.7
+anchor_bottom = 0.8
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="Logo" type="TextureRect" parent="VBox"]
+texture = ExtResource("5")
+expand_mode = 2
+stretch_mode = 3
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="VBox"]
+text = "SpeedTyper"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 40
+
+[node name="DifficultyLabel" type="Label" parent="VBox"]
+text = "Select Difficulty"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+
+[node name="DifficultyHBox" type="HBoxContainer" parent="VBox"]
+alignment = 1
+size_flags_horizontal = 3
+
+[node name="EasyButton" type="Button" parent="DifficultyHBox"]
+text = "Easy"
+script = ExtResource("1")
+difficulty = "Easy"
+size_flags_horizontal = 3
+
+[node name="NormalButton" type="Button" parent="DifficultyHBox"]
+text = "Normal"
+script = ExtResource("1")
+difficulty = "Normal"
+size_flags_horizontal = 3
+
+[node name="HardButton" type="Button" parent="DifficultyHBox"]
+text = "Hard"
+script = ExtResource("1")
+difficulty = "Hard"
+size_flags_horizontal = 3
+
+[node name="InsaneButton" type="Button" parent="DifficultyHBox"]
+text = "Insane"
+script = ExtResource("1")
+difficulty = "Insane"
+size_flags_horizontal = 3
+
+[node name="EndlessButton" type="Button" parent="DifficultyHBox"]
+text = "Endless"
+script = ExtResource("1")
+difficulty = "Endless"
+size_flags_horizontal = 3
+
+[node name="CampaignButton" type="Button" parent="VBox"]
+text = "Campaign"
+script = ExtResource("2")
+scene_path = "res://scenes/CampaignMenu.tscn"
+size_flags_horizontal = 3
+
+[node name="CustomLabel" type="Label" parent="VBox"]
+text = "Custom Settings"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+size_flags_horizontal = 3
+
+[node name="CustomHBox" type="HBoxContainer" parent="VBox"]
+alignment = 1
+size_flags_horizontal = 3
+
+[node name="SpeedLabel" type="Label" parent="CustomHBox"]
+text = "Speed"
+
+[node name="SpeedInput" type="LineEdit" parent="CustomHBox"]
+text = "1.3"
+size_flags_horizontal = 3
+
+[node name="DelayLabel" type="Label" parent="CustomHBox"]
+text = "Delay"
+
+[node name="DelayInput" type="LineEdit" parent="CustomHBox"]
+text = "1.45"
+size_flags_horizontal = 3
+
+[node name="ScoreLabel" type="Label" parent="CustomHBox"]
+text = "Score"
+
+[node name="ScoreInput" type="LineEdit" parent="CustomHBox"]
+text = "100"
+size_flags_horizontal = 3
+
+[node name="PlayCustomButton" type="Button" parent="CustomHBox"]
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="VBox"]
+text = "Quit"
+script = ExtResource("2")
+quit_on_empty = true
+size_flags_horizontal = 3
+
+[node name="CustomSettingsPanel" type="Node" parent="."]
+script = ExtResource("3")
+speed_input_path = NodePath("../VBox/CustomHBox/SpeedInput")
+delay_input_path = NodePath("../VBox/CustomHBox/DelayInput")
+score_input_path = NodePath("../VBox/CustomHBox/ScoreInput")
+play_button_path = NodePath("../VBox/CustomHBox/PlayCustomButton")
